@@ -8,23 +8,81 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: true,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: DefaultTabController(
+          length: 3,
+          child: Scaffold(
+            appBar: AppBar(
+              backgroundColor: Color(0xff78bfe0),
+              bottom: TabBar(
+                tabs: [
+                  Tab(
+                    text: "Imagen 1",
+                  ),
+                  Tab(text: "Imagen 2"),
+                ],
+              ),
+              title: Text('ACT7 Celulares'),
+            ),
+            body: TabBarView(
+              children: [
+                Image.asset(
+                  "assets/images/iPhone_15.png",
+                  width: 400,
+                  height: 300,
+                  fit: BoxFit.contain,
+                  frameBuilder: (context, child, frame, loaded) {
+                    if (loaded) {
+                      return child;
+                    }
+                    return AnimatedOpacity(
+                      opacity: frame == null ? 0 : 1,
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.easeOut,
+                      child: child,
+                    );
+                  },
+                  errorBuilder: (context, exception, stackTrace) {
+                    return const Center(
+                      child: Text("Chale no sirve, No se puedo"),
+                    );
+                  },
+                ),
+                Image.asset(
+                  "assets/images/Apple_iPhone_13_Pro_color_lineup_2022.jpg",
+                  width: 400,
+                  height: 300,
+                  fit: BoxFit.contain,
+                  frameBuilder: (context, child, frame, loaded) {
+                    if (loaded) {
+                      return child;
+                    }
+                    return AnimatedOpacity(
+                      opacity: frame == null ? 0 : 1,
+                      duration: const Duration(seconds: 1),
+                      curve: Curves.easeOut,
+                      child: child,
+                    );
+                  },
+                  errorBuilder: (context, exception, stackTrace) {
+                    return const Center(
+                      child: Text("Chale no sirve"),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+        ));
   }
 }
 
 class MyHomePage extends StatelessWidget {
   final String title;
-  const MyHomePage({super.key, required this.title});  
+  const MyHomePage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
