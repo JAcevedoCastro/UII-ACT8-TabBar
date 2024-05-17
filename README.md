@@ -19,3 +19,4 @@ samples, guidance on mobile development, and a full API reference.
 - Join the discussion and conversation on https://flutlab.io/residents
 
 ![image](https://github.com/JAcevedoCastro/UII-ACT8-TabBar/assets/144373213/07be2014-a7ea-4905-b2ff-b957f775c108)
+![image](https://github.com/JAcevedoCastro/UII-ACT8-TabBar/assets/144373213/fb300a14-b79a-42c6-bb1f-95c5246e298d)
